@@ -3,7 +3,8 @@ resource "aws_vpc" "chat-app-vpc" {
 
 
   tags = {
-    app = var.app_name
+    app  = var.app_name
+    Name = "chat-app-vpc"
   }
 }
 
@@ -19,7 +20,8 @@ resource "aws_subnet" "chat-app-public-subnet" {
   availability_zone = each.key
   cidr_block        = each.value
   tags = {
-    app = var.app_name
+    app  = var.app_name
+    Name = "chat-app-public-subnet-${each.key}"
   }
 }
 
@@ -36,7 +38,8 @@ resource "aws_subnet" "chat-app-private-subnet" {
   availability_zone = each.key
   cidr_block        = each.value
   tags = {
-    app = var.app_name
+    app  = var.app_name
+    Name = "chat-app-private-subnet-${each.key}"
   }
 }
 

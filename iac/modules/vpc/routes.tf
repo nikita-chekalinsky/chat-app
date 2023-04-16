@@ -7,7 +7,8 @@ resource "aws_route_table" "chat-app-public-route-table" {
   }
 
   tags = {
-    app = var.app_name
+    app  = var.app_name
+    Name = "chat-app-public-route-table"
   }
 }
 
