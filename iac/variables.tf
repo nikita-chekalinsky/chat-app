@@ -9,3 +9,9 @@ variable "aws_region" {
   type        = string
   default     = "ap-northeast-1"
 }
+
+variable "container_port" {
+  description = "The port the container is listening on"
+  type        = number
+  default     = 8080
+}

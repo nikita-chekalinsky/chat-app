@@ -133,3 +133,6 @@ dmypy.json
 *.tfstate
 *.tfstate.*
 *.terraform.*
+
+# vscode
+.vscode/

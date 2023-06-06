@@ -1,0 +1,5 @@
+aio-pika
+aiormq
+websockets
+uvicorn
+pydantic
