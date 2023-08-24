@@ -1,10 +1,11 @@
-from pydantic import BaseSettings, Field
+from pydantic_settings import BaseSettings
+from pydantic import Field
 
 
 class Settings(BaseSettings):
-    region: str = Field(..., env='AWS_REGION')
-    dynamodb_user_key: str = Field(..., env='DYNAMODB_USER_KEY')
-    dynamodb_user_secret: str = Field(..., env='DYNAMODB_USER_SECRET')
+    db_username: str = Field(..., env="DB_USERNAME")
+    db_password: str = Field(..., env="DB_PASSWORD")
+    db_keyspace: str = Field(default='chat_app', env="DB_KEYSPACE")
 
 
 settings = Settings()

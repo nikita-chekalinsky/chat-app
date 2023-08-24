@@ -1,5 +1,5 @@
 # FROM --platform=linux/amd64 python:3.11
-FROM python:3.11.3
+FROM python:3.11
 
 RUN mkdir /app
 WORKDIR /app

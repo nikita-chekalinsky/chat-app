@@ -1,31 +1,21 @@
+from uuid import UUID
 from pydantic import BaseModel
 
 
 class UserUpdate(BaseModel):
-    user_id: str
+    user_id: UUID
     username: str = ''
-    profile_picture_link: str = ''
 
 
 class UserCreate(BaseModel):
     username: str = ''
-    profile_picture_link: str = ''
-    email: str
-    password: str
-    chat_ids: list[str] = []
-
-
-class UserPublic(BaseModel):
-    user_id: int
-    username: str
-    email: str
-    profile_picture_link: str = None
+    chat_ids: set[UUID] = set()
 
 
 class User(UserCreate):
-    user_id: str
+    user_id: UUID
 
 
 class UserAddChats(BaseModel):
-    user_id: str
-    chat_ids: list[str] = []
+    user_id: UUID
+    chat_ids: set[UUID] = set()

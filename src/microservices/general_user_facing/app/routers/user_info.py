@@ -41,4 +41,4 @@ async def update_user(request: Request,
 })
 async def add_chat(request: Request,
                    user_chats: UserAddChats) -> User:
-    return await user_repository.add_chat(user_chats)
+    return await user_repository.add_chats(user_chats)

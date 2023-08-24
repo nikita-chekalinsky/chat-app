@@ -1,16 +1,16 @@
 from pydantic import BaseModel
+from uuid import UUID
 
 
 class ChatCreate(BaseModel):
     name: str = None
-    chat_picture_link: str = None
-    user_ids: list[str] = []
+    user_ids: set[UUID] = set()
 
 
 class Chat(ChatCreate):
-    chat_id: str
+    chat_id: UUID
 
 
 class ChatAddUsers(BaseModel):
-    chat_id: str
-    user_ids: list[str] = []
+    chat_id: UUID
+    user_ids: set[UUID] = set()

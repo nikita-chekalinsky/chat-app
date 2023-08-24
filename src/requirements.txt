@@ -1,0 +1,5 @@
+scylla-driver
+pydantic
+pydantic-settings
+uvicorn
+fastapi

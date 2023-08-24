@@ -1,4 +1,5 @@
 from datetime import datetime
+from uuid import UUID
 from fastapi import APIRouter, Request
 from libs.schemas.chat import (
     Chat,
@@ -20,7 +21,7 @@ message_repository = MessageRepository()
     200: {"model": Chat},
 })
 async def get_chat_info(request: Request,
-                        chat_id: str) -> Chat:
+                        chat_id: UUID) -> Chat:
     return await chat_repository.get_chat(request, chat_id)
 
 
@@ -44,7 +45,7 @@ async def add_users_to_chat(request: Request,
     200: {"model": list[Message]},
 })
 async def get_chat_messages(request: Request,
-                            chat_id: str,
+                            chat_id: UUID,
                             message_timestamp: datetime = None,
                             start_timestamp: datetime = None,
                             end_timestamp: datetime = None,

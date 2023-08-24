@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import HTTPBearer
 from app.routers.chats import router as chats_router
-from app.services.db_init import on_startup, on_shutdown
+from app.services.db import on_startup, on_shutdown
 
 
 app = FastAPI()
