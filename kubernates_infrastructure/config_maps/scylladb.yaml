@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: scylla-config
+data:
+  scylla.yaml: |
+    cluster_name: "chat_app"
+    listen_address: auto
+    rpc_address: 0.0.0.0
+    seed_provider:
+      - class_name: org.apache.cassandra.locator.SimpleSeedProvider
+        parameters:
+          - seeds: "seed1,seed2"
+    num_tokens: 256
+    endpoint_snitch: GossipingPropertyFileSnitch
+    data_file_directories:
+      - /var/lib/scylla/data
+    commitlog_directory: /var/lib/scylla/commitlog
+    saved_caches_directory: /var/lib/scylla/saved_caches
+    authenticator: AllowAllAuthenticator
+    authorizer: AllowAllAuthorizer
+    role_manager: org.apache.cassandra.auth.CassandraRoleManager
+    auto_bootstrap: false
+    disk_failure_policy: stop
+    restart_on_out_of_memory: true
+    commitlog_sync: periodic
+    commitlog_sync_period_in_ms: 10000
+    commitlog_segment_size_in_mb: 32
+    internode_compression: all
+    key_cache_size_in_mb:
+    key_cache_save_period: 14400
+    row_cache_size_in_mb: 0
+    row_cache_save_period: 0
+    concurrent_reads: 32
+    concurrent_writes: 32
+    memtable_allocation_type: heap_buffers
+    index_summary_capacity_in_mb:
+    memtable_cleanup_threshold: 0.11
+    memtable_flush_writers: 0
+    commitlog_total_space_in_mb:
+    trickle_fsync: false
+    trickle_fsync_interval_in_kb: 10240
+    storage_port: 7000
+    ssl_storage_port: 7001
+    listen_interface: eth0
+    start_native_transport: true
+    native_transport_port: 9042
+    start_rpc: false
+    rpc_address: 0.0.0.0
+    rpc_interface: eth0
+    rpc_port: 9160
